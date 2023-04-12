@@ -1,0 +1,707 @@
+<?xml version="1.0" ?>
+<robot name="alphabot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find alphabot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find alphabot_description)/urdf/alphabot.trans" />
+<xacro:include filename="$(find alphabot_description)/urdf/alphabot.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.02 -1.94978353285355e-05 -0.00745233167839299" rpy="0 0 0"/>
+    <mass value="0.28642351470332406"/>
+    <inertia ixx="0.000125" iyy="0.000266" izz="0.000389" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="spacer_1_1">
+  <inertial>
+    <origin xyz="-8.5543543531727e-08 -2.7755575615628914e-15 0.02005616243908092" rpy="0 0 0"/>
+    <mass value="0.005257224692902246"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.008948 -0.04191 0.004952" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/spacer_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="gold"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.008948 -0.04191 0.004952" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/spacer_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="spacer_1_2">
+  <inertial>
+    <origin xyz="-8.554354357336036e-08 -2.7755575615628914e-15 0.02005616243908092" rpy="0 0 0"/>
+    <mass value="0.005257224692902246"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.008948 0.04191 0.004952" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/spacer_1_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="gold"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.008948 0.04191 0.004952" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/spacer_1_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="spacer_1_3">
+  <inertial>
+    <origin xyz="8.554362089518985e-08 -2.7824964554667986e-15 0.020056162439080885" rpy="0 0 0"/>
+    <mass value="0.005257224692902246"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.048948 0.04191 0.004952" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/spacer_1_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="gold"/>
+  </visual>
+  <collision>
+    <origin xyz="0.048948 0.04191 0.004952" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/spacer_1_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="spacer_1_4">
+  <inertial>
+    <origin xyz="8.554362092988432e-08 -2.7408630920433552e-15 0.020056162439080885" rpy="0 0 0"/>
+    <mass value="0.005257224692902246"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.048948 -0.04191 0.004952" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/spacer_1_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="gold"/>
+  </visual>
+  <collision>
+    <origin xyz="0.048948 -0.04191 0.004952" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/spacer_1_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ultasonic_1">
+  <inertial>
+    <origin xyz="0.033193707682986025 0.019999904709901414 0.01996218206000405" rpy="0 0 0"/>
+    <mass value="0.02930398813229992"/>
+    <inertia ixx="6e-06" iyy="1e-06" izz="5e-06" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.02 0.02 0.014905" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/ultasonic_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue_2"/>
+  </visual>
+  <collision>
+    <origin xyz="0.02 0.02 0.014905" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/ultasonic_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="AA_1">
+  <inertial>
+    <origin xyz="1.5959455978986625e-16 -0.024725409875466932 -3.316783929825304e-07" rpy="0 0 0"/>
+    <mass value="0.06207035736097537"/>
+    <inertia ixx="1.3e-05" iyy="2e-06" izz="1.3e-05" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.04225 -0.026 -0.004048" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/AA_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin xyz="0.04225 -0.026 -0.004048" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/AA_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="AA_2">
+  <inertial>
+    <origin xyz="1.6653345369377348e-16 0.024725409875466935 -3.3167839298513246e-07" rpy="0 0 0"/>
+    <mass value="0.06207035736097537"/>
+    <inertia ixx="1.3e-05" iyy="2e-06" izz="1.3e-05" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.05775 0.026 -0.004048" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/AA_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin xyz="0.05775 0.026 -0.004048" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/AA_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="battery_case_1">
+  <inertial>
+    <origin xyz="-0.030001214328793952 0.019965972372322435 0.013658871061547454" rpy="0 0 0"/>
+    <mass value="0.06781923232527433"/>
+    <inertia ixx="2.2e-05" iyy="8e-06" izz="2.8e-05" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.02 0.02 0.014905" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/battery_case_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.02 0.02 0.014905" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/battery_case_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_1">
+  <inertial>
+    <origin xyz="-5.612034448265746e-11 -0.004604091884807676 0.014952668255257739" rpy="0 0 0"/>
+    <mass value="0.006835989534703237"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.02 0.02 0.014905" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/motor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.02 0.02 0.014905" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/motor_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_2">
+  <inertial>
+    <origin xyz="5.6120341013210506e-11 0.04460409188480768 0.014952668255257739" rpy="0 0 0"/>
+    <mass value="0.006835989534703237"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.02 0.02 0.014905" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/motor_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.02 0.02 0.014905" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/motor_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_1">
+  <inertial>
+    <origin xyz="-3.6085538349002466e-06 0.006410625405004984 -2.519122826068395e-06" rpy="0 0 0"/>
+    <mass value="0.10619619440264885"/>
+    <inertia ixx="1.8e-05" iyy="3.1e-05" izz="1.8e-05" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.02 -0.037 -4.8e-05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.02 -0.037 -4.8e-05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="top_link_1">
+  <inertial>
+    <origin xyz="0.02896008554358224 0.04191000000000044 0.0024996683216068558" rpy="0 0 0"/>
+    <mass value="0.37189545514665234"/>
+    <inertia ixx="0.000281" iyy="0.000282" izz="0.000561" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.048948 0.04191 -0.035423" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/top_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="blue"/>
+  </visual>
+  <collision>
+    <origin xyz="0.048948 0.04191 -0.035423" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/top_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pantilt_1_1">
+  <inertial>
+    <origin xyz="-0.003632741722051625 -2.87666307189565e-15 0.0018087943330409445" rpy="0 0 0"/>
+    <mass value="0.02484644401179895"/>
+    <inertia ixx="2e-06" iyy="3e-06" izz="5e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.019988 0.0 -0.040423" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/pantilt_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.019988 0.0 -0.040423" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/pantilt_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="servo_emax_1_1">
+  <inertial>
+    <origin xyz="8.554358225595915e-08 1.2546002784527504e-13 0.0035263014079521676" rpy="0 0 0"/>
+    <mass value="0.0035428307305659244"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.019988 0.0 -0.042423" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/servo_emax_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.019988 0.0 -0.042423" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/servo_emax_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pantilt_2_1">
+  <inertial>
+    <origin xyz="-0.024434540776768092 0.058954045810892274 0.003603404587610895" rpy="0 0 0"/>
+    <mass value="0.05139456940551715"/>
+    <inertia ixx="1e-05" iyy="1.1e-05" izz="1.4e-05" ixy="-0.0" iyz="-0.0" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.01175 0.059723 -0.069723" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/pantilt_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.01175 0.059723 -0.069723" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/pantilt_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="servo_emax_2_1">
+  <inertial>
+    <origin xyz="-0.0919834516518788 -0.021846169429072 -0.04697233167823213" rpy="0 0 0"/>
+    <mass value="0.0026502814230264554"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.098148 -0.005389 -0.136545" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/servo_emax_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.098148 -0.005389 -0.136545" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/servo_emax_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="pantilt_3_1">
+  <inertial>
+    <origin xyz="0.11125626443826739 -0.013095879873687063 0.0004311932686931613" rpy="0 0 0"/>
+    <mass value="0.025707768034284914"/>
+    <inertia ixx="6e-06" iyy="3e-06" izz="4e-06" ixy="0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.096261 -0.0148 -0.100061" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/pantilt_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.096261 -0.0148 -0.100061" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/pantilt_3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="servo_2_1">
+  <inertial>
+    <origin xyz="8.554358096879433e-08 0.012439350245232206 0.005558642662359295" rpy="0 0 0"/>
+    <mass value="0.048166128445804444"/>
+    <inertia ixx="4e-06" iyy="3e-06" izz="3e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.007112 0.0112 -0.089573" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/servo_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="light_blue"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.007112 0.0112 -0.089573" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/servo_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="servo_1_1">
+  <inertial>
+    <origin xyz="0.005559059884334831 -1.4899192990469603e-15 0.012439018566839377" rpy="0 0 0"/>
+    <mass value="0.048166128445804444"/>
+    <inertia ixx="3e-06" iyy="4e-06" izz="3e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.019988 0.0 -0.051923" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/servo_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="light_blue"/>
+  </visual>
+  <collision>
+    <origin xyz="0.019988 0.0 -0.051923" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/servo_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_1">
+  <inertial>
+    <origin xyz="0.005425181886043042 -1.387236679695203e-15 0.0006839016107979545" rpy="0 0 0"/>
+    <mass value="0.007223141621539521"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.015312 -0.0007 -0.100273" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="green"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.015312 -0.0007 -0.100273" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_1">
+  <inertial>
+    <origin xyz="-3.6087326488708216e-06 -0.00658937458754439 -2.519122826105346e-06" rpy="0 0 0"/>
+    <mass value="0.10619619440264885"/>
+    <inertia ixx="1.8e-05" iyy="3.1e-05" izz="1.8e-05" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.02 0.037 -4.8e-05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="black"/>
+  </visual>
+  <collision>
+    <origin xyz="0.02 0.037 -4.8e-05" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ball_1">
+  <inertial>
+    <origin xyz="0.0 1.7763568394002505e-17 -0.0010004090090211058" rpy="0 0 0"/>
+    <mass value="0.005036225223550487"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.06 -0.0 0.014453" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/ball_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.06 -0.0 0.014453" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/ball_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="housing_1">
+  <inertial>
+    <origin xyz="-0.04000000000000001 0.02 0.00531836184140032" rpy="0 0 0"/>
+    <mass value="0.003819569070267199"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.02 0.02 0.019905" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/housing_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin xyz="0.02 0.02 0.019905" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/housing_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ball_2">
+  <inertial>
+    <origin xyz="0.07999999999999999 -1.7763568394002505e-17 -0.001000409009021097" rpy="0 0 0"/>
+    <mass value="0.005036225223550487"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.06 -0.0 0.014453" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/ball_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.06 -0.0 0.014453" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/ball_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="housing_2">
+  <inertial>
+    <origin xyz="0.039999999999999994 0.019999999999999966 0.005318361841400323" rpy="0 0 0"/>
+    <mass value="0.003819569070267199"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.02 0.02 0.019905" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/housing_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="white"/>
+  </visual>
+  <collision>
+    <origin xyz="0.02 0.02 0.019905" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://alphabot_description/meshes/housing_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rigid 6" type="fixed">
+  <origin xyz="0.008948 0.04191 -0.004952" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="spacer_1_1"/>
+</joint>
+
+<joint name="Rigid 7" type="fixed">
+  <origin xyz="0.008948 -0.04191 -0.004952" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="spacer_1_2"/>
+</joint>
+
+<joint name="Rigid 8" type="fixed">
+  <origin xyz="-0.048948 -0.04191 -0.004952" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="spacer_1_3"/>
+</joint>
+
+<joint name="Rigid 9" type="fixed">
+  <origin xyz="-0.048948 0.04191 -0.004952" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="spacer_1_4"/>
+</joint>
+
+<joint name="Rigid 10" type="fixed">
+  <origin xyz="-0.02 -0.02 -0.014905" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="ultasonic_1"/>
+</joint>
+
+<joint name="Rigid 13" type="fixed">
+  <origin xyz="-0.02225 0.046 0.018953" rpy="0 0 0"/>
+  <parent link="battery_case_1"/>
+  <child link="AA_1"/>
+</joint>
+
+<joint name="Rigid 14" type="fixed">
+  <origin xyz="-0.03775 -0.006 0.018953" rpy="0 0 0"/>
+  <parent link="battery_case_1"/>
+  <child link="AA_2"/>
+</joint>
+
+<joint name="Rigid 15" type="fixed">
+  <origin xyz="-0.02 -0.02 -0.014905" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="battery_case_1"/>
+</joint>
+
+<joint name="Rigid 16" type="fixed">
+  <origin xyz="-0.02 -0.02 -0.014905" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="motor_1"/>
+</joint>
+
+<joint name="Rigid 17" type="fixed">
+  <origin xyz="-0.02 -0.02 -0.014905" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="motor_2"/>
+</joint>
+
+<joint name="Revolute 18" type="continuous">
+  <origin xyz="0.0 0.057 0.014953" rpy="0 0 0"/>
+  <parent link="motor_2"/>
+  <child link="left_wheel_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Rigid 20" type="fixed">
+  <origin xyz="0.0 0.0 0.040375" rpy="0 0 0"/>
+  <parent link="spacer_1_3"/>
+  <child link="top_link_1"/>
+</joint>
+
+<joint name="Rigid 21" type="fixed">
+  <origin xyz="0.02896 0.04191 0.005" rpy="0 0 0"/>
+  <parent link="top_link_1"/>
+  <child link="pantilt_1_1"/>
+</joint>
+
+<joint name="Rigid 22" type="fixed">
+  <origin xyz="0.0 0.0 0.002" rpy="0 0 0"/>
+  <parent link="pantilt_1_1"/>
+  <child link="servo_emax_1_1"/>
+</joint>
+
+<joint name="Rigid 24" type="fixed">
+  <origin xyz="0.031738 -0.059723 0.0178" rpy="0 0 0"/>
+  <parent link="servo_1_1"/>
+  <child link="pantilt_2_1"/>
+</joint>
+
+<joint name="Rigid 27" type="fixed">
+  <origin xyz="0.086398 0.065112 0.066822" rpy="0 0 0"/>
+  <parent link="pantilt_2_1"/>
+  <child link="servo_emax_2_1"/>
+</joint>
+
+<joint name="Rigid 29" type="fixed">
+  <origin xyz="-0.103373 0.026 0.010488" rpy="0 0 0"/>
+  <parent link="servo_2_1"/>
+  <child link="pantilt_3_1"/>
+</joint>
+
+<joint name="Revolute 30" type="continuous">
+  <origin xyz="-0.091036 -0.016589 -0.046972" rpy="0 0 0"/>
+  <parent link="servo_emax_2_1"/>
+  <child link="servo_2_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="Revolute 31" type="continuous">
+  <origin xyz="0.0 0.0 0.0095" rpy="0 0 0"/>
+  <parent link="servo_emax_1_1"/>
+  <child link="servo_1_1"/>
+  <axis xyz="-0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="Rigid 32" type="fixed">
+  <origin xyz="0.111573 -0.0141 0.000212" rpy="0 0 0"/>
+  <parent link="pantilt_3_1"/>
+  <child link="camera_1"/>
+</joint>
+
+<joint name="Revolute 33" type="continuous">
+  <origin xyz="0.0 -0.017 0.014953" rpy="0 0 0"/>
+  <parent link="motor_1"/>
+  <child link="right_wheel_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="Rigid 43" type="fixed">
+  <origin xyz="-0.04 0.02 0.005452" rpy="0 0 0"/>
+  <parent link="housing_1"/>
+  <child link="ball_1"/>
+</joint>
+
+<joint name="Rigid 44" type="fixed">
+  <origin xyz="-0.02 -0.02 -0.019905" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="housing_1"/>
+</joint>
+
+<joint name="Rigid 45" type="fixed">
+  <origin xyz="-0.04 0.02 0.005452" rpy="0 0 0"/>
+  <parent link="housing_2"/>
+  <child link="ball_2"/>
+</joint>
+
+<joint name="Rigid 46" type="fixed">
+  <origin xyz="-0.02 -0.02 -0.019905" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="housing_2"/>
+</joint>
+
+</robot>
