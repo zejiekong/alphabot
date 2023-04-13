@@ -673,7 +673,7 @@
   <child link="camera_1"/>
 </joint>
 
-<joint name="Revolute 33" type="continuous">
+<joint name="Revolute 19" type="continuous">
   <origin xyz="0.0 -0.017 0.014953" rpy="0 0 0"/>
   <parent link="motor_1"/>
   <child link="right_wheel_1"/>

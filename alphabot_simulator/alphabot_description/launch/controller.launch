@@ -1,9 +1,0 @@
-<launch>
-
-<rosparam file="$(find alphabot_description)/launch/controller.yaml" command="load"/>
-<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="alphabot" args="Rev18_position_controller Rev19_position_controller Rev30_position_controller Rev31_position_controller joint_state_controller "/>
-<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
-  <remap from="/joint_states" to="/alphabot/joint_states"/>
-</node>
-
-</launch>

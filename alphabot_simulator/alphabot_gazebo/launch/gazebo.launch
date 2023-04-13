@@ -8,4 +8,7 @@
     <arg name="headless" value="false"/>
     <arg name="debug" value="false"/>
   </include>
+
+  <!--alphabot control launch file-->
+  <include file="$(find alphabot_control)/launch/controller.launch"/>
 </launch>
