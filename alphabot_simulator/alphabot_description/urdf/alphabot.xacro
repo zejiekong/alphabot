@@ -5,6 +5,7 @@
 <xacro:include filename="$(find alphabot_description)/urdf/alphabot.trans" />
 <xacro:include filename="$(find alphabot_description)/urdf/alphabot.gazebo" />
 <link name="base_link">
+  <pose> 0 0 0 0 0 0 </pose>
   <inertial>
     <origin xyz="-0.02 -1.94978353285355e-05 -0.00745233167839299" rpy="0 0 0"/>
     <mass value="0.28642351470332406"/>

@@ -9,7 +9,9 @@
 <xacro:property name="blue_2" value="Gazebo/SkyBlue" />
 
 <gazebo>
-  <plugin name="control" filename="libgazebo_ros_control.so"/>
+  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    <robotNamespace>/alphabot</robotNamespace>
+  </plugin>
 </gazebo>
 <gazebo reference="base_link">
   <material>${blue}</material>
