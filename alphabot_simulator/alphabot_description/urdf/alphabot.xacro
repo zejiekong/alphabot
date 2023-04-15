@@ -8,7 +8,7 @@
   <pose> 0 0 0 0 0 0 </pose>
   <inertial>
     <origin xyz="-0.02 -1.94978353285355e-05 -0.00745233167839299" rpy="0 0 0"/>
-    <mass value="0.28642351470332406"/>
+    <mass value="0.2"/>
     <inertia ixx="0.000125" iyy="0.000266" izz="0.000389" ixy="-0.0" iyz="0.0" ixz="0.0"/>
   </inertial>
   <visual>
@@ -29,7 +29,7 @@
 <link name="spacer_1_1">
   <inertial>
     <origin xyz="-8.5543543531727e-08 -2.7755575615628914e-15 0.02005616243908092" rpy="0 0 0"/>
-    <mass value="0.005257224692902246"/>
+    <mass value="0.05"/>
     <inertia ixx="1e-06" iyy="1e-06" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
   </inertial>
   <visual>
@@ -50,7 +50,7 @@
 <link name="spacer_1_2">
   <inertial>
     <origin xyz="-8.554354357336036e-08 -2.7755575615628914e-15 0.02005616243908092" rpy="0 0 0"/>
-    <mass value="0.005257224692902246"/>
+    <mass value="0.05"/>
     <inertia ixx="1e-06" iyy="1e-06" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
   </inertial>
   <visual>
@@ -71,7 +71,7 @@
 <link name="spacer_1_3">
   <inertial>
     <origin xyz="8.554362089518985e-08 -2.7824964554667986e-15 0.020056162439080885" rpy="0 0 0"/>
-    <mass value="0.005257224692902246"/>
+    <mass value="0.05"/>
     <inertia ixx="1e-06" iyy="1e-06" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
   </inertial>
   <visual>
@@ -92,7 +92,7 @@
 <link name="spacer_1_4">
   <inertial>
     <origin xyz="8.554362092988432e-08 -2.7408630920433552e-15 0.020056162439080885" rpy="0 0 0"/>
-    <mass value="0.005257224692902246"/>
+    <mass value="0.05"/>
     <inertia ixx="1e-06" iyy="1e-06" izz="0.0" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
   </inertial>
   <visual>
@@ -134,7 +134,7 @@
 <link name="AA_1">
   <inertial>
     <origin xyz="1.5959455978986625e-16 -0.024725409875466932 -3.316783929825304e-07" rpy="0 0 0"/>
-    <mass value="0.06207035736097537"/>
+    <mass value="0.2"/>
     <inertia ixx="1.3e-05" iyy="2e-06" izz="1.3e-05" ixy="0.0" iyz="-0.0" ixz="0.0"/>
   </inertial>
   <visual>
@@ -155,7 +155,7 @@
 <link name="AA_2">
   <inertial>
     <origin xyz="1.6653345369377348e-16 0.024725409875466935 -3.3167839298513246e-07" rpy="0 0 0"/>
-    <mass value="0.06207035736097537"/>
+    <mass value="0.2"/>
     <inertia ixx="1.3e-05" iyy="2e-06" izz="1.3e-05" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
   </inertial>
   <visual>
@@ -197,7 +197,7 @@
 <link name="motor_1">
   <inertial>
     <origin xyz="-5.612034448265746e-11 -0.004604091884807676 0.014952668255257739" rpy="0 0 0"/>
-    <mass value="0.006835989534703237"/>
+    <mass value="0.05"/>
     <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="0.0" ixz="0.0"/>
   </inertial>
   <visual>
@@ -218,7 +218,7 @@
 <link name="motor_2">
   <inertial>
     <origin xyz="5.6120341013210506e-11 0.04460409188480768 0.014952668255257739" rpy="0 0 0"/>
-    <mass value="0.006835989534703237"/>
+    <mass value="0.05"/>
     <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
   </inertial>
   <visual>
@@ -616,6 +616,7 @@
   <parent link="motor_2"/>
   <child link="left_wheel_1"/>
   <axis xyz="0.0 1.0 0.0"/>
+  <dynamics damping="2.0" friction="2.0"/>
 </joint>
 
 <joint name="Rigid 20" type="fixed">
@@ -659,6 +660,8 @@
   <parent link="servo_emax_2_1"/>
   <child link="servo_2_1"/>
   <axis xyz="0.0 1.0 0.0"/>
+  <dynamics damping="0.1" friction="100"/>
+  <limit effort="130" lower="-1.57" upper="1.57" velocity="6.98"/>
 </joint>
 
 <joint name="Revolute 31" type="continuous">
@@ -666,6 +669,8 @@
   <parent link="servo_emax_1_1"/>
   <child link="servo_1_1"/>
   <axis xyz="-0.0 -0.0 1.0"/>
+  <dynamics damping="0.01" friction="1"/>
+  <limit effort="130" lower="-1.57" upper="1.57" velocity="6.98"/>
 </joint>
 
 <joint name="Rigid 32" type="fixed">
@@ -679,6 +684,7 @@
   <parent link="motor_1"/>
   <child link="right_wheel_1"/>
   <axis xyz="0.0 1.0 -0.0"/>
+  <dynamics damping="2.0" friction="2.0"/>
 </joint>
 
 <joint name="Rigid 43" type="fixed">
