@@ -178,16 +178,20 @@
 
 <gazebo reference="left_wheel_1">
   <material>${black}</material>
-  <mu1>10000</mu1>
-  <mu2>10000</mu2>
+  <mu1>1000</mu1>
+  <mu2>1000</mu2>
   <selfCollide>true</selfCollide>
+  <kp value="1000.0" />
+  <kd value="1.0" />
 </gazebo>
 
 <gazebo reference="right_wheel_1">
   <material>${black}</material>
-  <mu1>10000</mu1>
-  <mu2>10000</mu2>
+  <mu1>1000</mu1>
+  <mu2>1000</mu2>
   <selfCollide>true</selfCollide>
+  <kp value="1000.0" />
+  <kd value="1.0" />
 </gazebo>
 
 <gazebo reference="top_link_1">
@@ -292,8 +296,10 @@
 
 <gazebo reference="ball_1">
   <material>${silver}</material>
-  <mu1>10</mu1>
-  <mu2>10</mu2>
+  <mu1>0.0001</mu1>
+  <mu2>0.0001</mu2>
+  <kp>0.1</kp>
+  <kd>0.1</kd>
   <selfCollide>true</selfCollide>
 </gazebo>
 
@@ -306,8 +312,10 @@
 
 <gazebo reference="ball_2">
   <material>${silver}</material>
-  <mu1>10</mu1>
-  <mu2>10</mu2>
+  <mu1>0.0001</mu1>
+  <mu2>0.0001</mu2>
+  <kp>0.1</kp>
+  <kd>0.1</kd>
   <selfCollide>true</selfCollide>
 </gazebo>
 
