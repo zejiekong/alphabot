@@ -1,0 +1,27 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows, mindmap}
+
+\title{Alphabot}
+\author{Ze Jie Kong }
+\date{April 2023}
+
+\begin{document}
+\maketitle
+\section{Introduction}
+\pagebreak
+\section{System Design}
+\begin{tikzpicture}[mindmap, grow cyclic,every node/.style=concept, concept color=orange!40,
+                level 1/.append style={level distance=5cm,sibling angle=90},
+	        level 2/.append style={level distance=3cm,sibling angle=45}]
+\node{Alphabot}
+    child[concept color=teal!40] { node {Navigation}
+        child[concept color=teal!40] { node{SLAM}}
+        child[concept color=teal!40] { node{Path Planning}}
+    }
+    child[concept color=blue!40] { node {Perception}}
+    child[concept color=red!40] { node {Control}}
+;
+\end{tikzpicture}
+\end{document}
