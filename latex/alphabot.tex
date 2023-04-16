@@ -16,12 +16,19 @@
                 level 1/.append style={level distance=5cm,sibling angle=90},
 	        level 2/.append style={level distance=3cm,sibling angle=45}]
 \node{Alphabot}
-    child[concept color=teal!40] { node {Navigation}
-        child[concept color=teal!40] { node{SLAM}}
-        child[concept color=teal!40] { node{Path Planning}}
+    child[concept color=teal!40]{node{Navigation}
+        child[concept color=teal!40]{node{Visual Inertial SLAM}
+            child[concept color=teal!40]{node{ORB-SLAM3}}
+        }
+        child[concept color=teal!40]{node{Path Planning}}
     }
-    child[concept color=blue!40] { node {Perception}}
-    child[concept color=red!40] { node {Control}}
+    child[concept color=blue!40]{node{Perception}
+        child[concept color=blue!40]{node{YOLO}}
+    }
+    child[concept color=red!40]{node{Control}
+        child[concept color=red!40]{node{Differential Drive}}
+    }
 ;
 \end{tikzpicture}
+\pagebreak
 \end{document}
