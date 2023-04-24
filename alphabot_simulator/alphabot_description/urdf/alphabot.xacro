@@ -2,8 +2,8 @@
 <robot name="alphabot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <xacro:include filename="$(find alphabot_description)/urdf/materials.xacro" />
-<xacro:include filename="$(find alphabot_description)/urdf/alphabot.trans" />
-<xacro:include filename="$(find alphabot_description)/urdf/alphabot.gazebo" />
+<link name="base_footprint" />
+
 <link name="base_link">
   <inertial>
     <origin xyz="3.9964129120210354e-17 -1.949783532853795e-05 0.014547668321607015" rpy="0 0 0"/>
@@ -372,7 +372,7 @@
     <geometry>
       <mesh filename="package://alphabot_description/meshes/servo_2_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
-    <material name="silver"/>
+    <material name="light_blue"/>
   </visual>
   <collision>
     <origin xyz="-0.027112 0.0112 -0.111573" rpy="0 0 0"/>
@@ -550,6 +550,11 @@
   </collision>
 </link>
 
+<joint name="base_footprint_joint" type="fixed">
+  <parent link="base_footprint" />
+  <child link="base_link" />
+</joint>
+
 <joint name="Rigid 6" type="fixed">
   <origin xyz="0.028948 0.04191 0.017048" rpy="0 0 0"/>
   <parent link="base_link"/>
@@ -651,8 +656,6 @@
   <parent link="servo_emax_2_1"/>
   <child link="servo_2_1"/>
   <axis xyz="0.0 1.0 0.0"/>
-  <dynamics damping="0.1" friction="100"/>
-  <limit effort="130" lower="-1.57" upper="1.57" velocity="6.98"/>
 </joint>
 
 <joint name="Revolute 31" type="continuous">
@@ -660,8 +663,6 @@
   <parent link="servo_emax_1_1"/>
   <child link="servo_1_1"/>
   <axis xyz="-0.0 -0.0 1.0"/>
-  <dynamics damping="0.01" friction="1"/>
-  <limit effort="130" lower="-1.57" upper="1.57" velocity="6.98"/>
 </joint>
 
 <joint name="Rigid 32" type="fixed">
@@ -699,7 +700,6 @@
   <parent link="motor_2"/>
   <child link="left_wheel_1"/>
   <axis xyz="0.0 1.0 -0.0"/>
-  <dynamics damping="2" friction="2"/>
 </joint>
 
 <joint name="Revolute 19" type="continuous">
@@ -707,7 +707,6 @@
   <parent link="motor_1"/>
   <child link="right_wheel_1"/>
   <axis xyz="0.0 1.0 -0.0"/>
-  <dynamics damping="2" friction="2"/>
 </joint>
 
 </robot>
