@@ -1,0 +1,13 @@
+<launch>
+    <arg name="in_transport" value="compressed"/>
+    <arg name="out_transport" value="raw"/>
+    <arg name="in" value="raspicam_node/image"/>
+    <arg name="out" value="raspicam_node/image/uncompressed"/>
+
+    <include file="$(find raspicam_node)/launch/camerav2_410x308_30fps.launch"/>
+    <node name="uncompressed" pkg="image_transport" type="republish" args="$(arg in_transport) $(arg out_transport)">
+        <remap from="in" to="/raspicam_node/image"/>
+        <remap from="out" to="/raspicam_node/image/uncompressed"/>
+    </node>
+    <node name="web_video_server" pkg="web_video_server" type="web_video_server"/>
+</launch>
