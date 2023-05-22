@@ -1,4 +1,5 @@
 <launch>
 	<include file="$(find raspicam_node)/launch/camerav2_410x308_30fps.launch"/>
+	<node name="face_detection_node" pkg="face_detection" type="face_detection_node"/>
 	<node name="pantilt_node" pkg="pantilt_node" type="pantilt.py"/>
 </launch>
