@@ -40,20 +40,20 @@ void callback(const sensor_msgs::CompressedImageConstPtr msg) {
       detection_msgs::BoundingBox bb;
       bb.probability = detectionProbability;
       bb.xmin = face.x;
-      bb.ymin = face.y-face.height;
+      bb.ymin = face.y;
       bb.xmax = face.x+face.width;
-      bb.ymax = face.y;
+      bb.ymax = face.y+face.height;
       bb_msg.bounding_boxes.push_back(bb);
     }
     coord_pub.publish(bb_msg);
   }
-    cv_bridge::CvImage cv_image;
-    cv_image.image = cv_ptr->image;
-    cv_image.encoding="bgr8";
-    sensor_msgs::CompressedImagePtr img_msg = cv_image.toCompressedImageMsg();
-    img_pub.publish(img_msg);
+  cv_bridge::CvImage cv_image;
+  cv_image.image = cv_ptr->image;
+  cv_image.encoding="bgr8";
+  sensor_msgs::CompressedImagePtr img_msg = cv_image.toCompressedImageMsg();
+  img_pub.publish(img_msg);
   //cv::imshow("preview", cv_ptr->image);
-  //cv::waitKey(1);
+  cv::waitKey(1);
 }
 
 int main(int argc, char *argv[]) {

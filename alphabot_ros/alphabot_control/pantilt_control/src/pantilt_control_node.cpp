@@ -1,17 +1,24 @@
 #include <sensor_msgs/JointState.h>
 #include <ros/ros.h>
+#include <ros/package.h>
 #include <detection_msgs/BoundingBoxes.h>
 #include <detection_msgs/BoundingBox.h>
 #include <vector>
+#include <signal.h>
 
 ros::Publisher pub;
+int threshold{20};
 
-int pan_angle = 90;
-int tilt_angle = 90;
-void state_callback(const sensor_msgs::JointStateConstPtr msg)
+int pan_angle{90};
+int tilt_angle{90};
+
+void shutdownHandler(int sig)
 {
-    pan_angle = msg->position[0];
-    tilt_angle = msg->position[1];
+    sensor_msgs::JointState cmd_msg;
+    cmd_msg.position.push_back(90);
+    cmd_msg.position.push_back(90);
+    pub.publish(cmd_msg);
+    ros::shutdown();
 }
 
 void detect_callback(const detection_msgs::BoundingBoxesConstPtr msg)
@@ -32,37 +39,33 @@ void detect_callback(const detection_msgs::BoundingBoxesConstPtr msg)
     int error_x = centre_x - 205; //-ve turn right, +ve turn left
     int error_y = center_y - 154; //-ve move up, +ve move down
     sensor_msgs::JointState cmd_msg;
-    if(error_x < -20)
+    if(error_x < -threshold && pan_angle!=160)
     {
-        if(pan_angle!=170)
-        {
-            //cmd_msg.position.push_back(pan_angle+1);
-            ROS_INFO("Right");
-        }
+        cmd_msg.position.push_back(++pan_angle);
+        ROS_INFO("Left");
     }
-    else if(error_x > 20)
+    else if(error_x > threshold && pan_angle != 20)
     {
-        if(pan_angle != 10)
-        {
-            //cmd_msg.position.push_back(pan_angle-1);
-            ROS_INFO("Left");
-        }
+        cmd_msg.position.push_back(--pan_angle);
+        ROS_INFO("Right");
     }
-    if (error_y < -20)
+    else
     {
-        if(tilt_angle != 10)
-        {
-            //cmd_msg.position.push_back(tilt_angle-1);
-            ROS_INFO("UP");
-        }
+        cmd_msg.position.push_back(pan_angle);
     }
-    else if (error_y > 20)
+    if (error_y < -threshold && tilt_angle != 20)
     {
-        if(tilt_angle != 170)
-        {
-            //cmd_msg.position.push_back(tilt_angle+1);
-            ROS_INFO("Down");
-        }
+        cmd_msg.position.push_back(--tilt_angle);
+        ROS_INFO("UP");
+    }
+    else if (error_y > threshold && tilt_angle != 160)
+    {
+        cmd_msg.position.push_back(++tilt_angle);
+        ROS_INFO("Down");
+    }
+    else
+    {
+        cmd_msg.position.push_back(tilt_angle);
     }
     pub.publish(cmd_msg);
 }
@@ -70,9 +73,17 @@ void detect_callback(const detection_msgs::BoundingBoxesConstPtr msg)
 int main(int argc, char* argv[])
 {
     ros::init(argc,argv,"pantilt_control_node");
-    ros::NodeHandle n;
-    pub = n.advertise<sensor_msgs::JointState>("/alphabot/servo_cmd",10);
-    ros::Subscriber state_sub = n.subscribe("/alphabot/servo_state",1,state_callback);
-    ros::Subscriber detect_sub = n.subscribe("/alphabot/face_detection",1,detect_callback);
+    ros::NodeHandle nh;
+    signal(SIGINT,shutdownHandler);
+    if (nh.getParam("/threshold",threshold))
+    {
+        ROS_INFO("Successfully loaded configuration file. Threshold: %d",threshold);
+    }
+    else
+    {
+        ROS_INFO("Unsuccesful loading of configuration file. Default threshold: %d",threshold);
+    }
+    pub = nh.advertise<sensor_msgs::JointState>("/alphabot/servo_cmd",1);
+    ros::Subscriber detect_sub = nh.subscribe("/alphabot/face_detection/coord",1,detect_callback);
     ros::spin();
 }
