@@ -12,7 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   sensor_msgs
-  detection_msgs
+  vision_msgs
   std_msgs
 )
 
@@ -109,7 +109,7 @@ find_package(OpenCV 4 REQUIRED)
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES face_detection
-  CATKIN_DEPENDS cv_bridge roscpp rospy sensor_msgs detection_msgs std_msgs
+  CATKIN_DEPENDS cv_bridge roscpp rospy sensor_msgs vision_msgs std_msgs 
 #  DEPENDS system_lib
 )
 
