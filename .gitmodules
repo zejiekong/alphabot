@@ -4,6 +4,3 @@
 [submodule "alphabot_ros/alphabot_perception/yolov5_ros"]
 	path = alphabot_ros/alphabot_perception/yolov5_ros
 	url = https://github.com/mats-robotics/yolov5_ros.git
-[submodule "alphabot_ros/alphabot_perception/detection_msgs"]
-	path = alphabot_ros/alphabot_perception/detection_msgs
-	url = https://github.com/mats-robotics/detection_msgs.git

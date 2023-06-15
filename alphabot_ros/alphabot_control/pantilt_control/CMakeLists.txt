@@ -107,7 +107,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES pantilt_control
-#  CATKIN_DEPENDS detection_msgs roscpp rospy sensor_msgs std_msgs
+CATKIN_DEPENDS detection_msgs roscpp rospy sensor_msgs std_msgs
 #  DEPENDS system_lib
 )
 
