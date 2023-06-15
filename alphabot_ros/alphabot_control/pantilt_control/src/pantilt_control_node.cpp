@@ -29,9 +29,9 @@ void detect_callback(const vision_msgs::Detection2DArrayConstPtr msg)
     int max_num;
     for(int i = 0;i<num_faces;i++)
     {
-        if(msg->detections[num_faces].results[0].score > max_probability)
+        if(msg->detections[i].results[0].score > max_probability)
         {
-            max_probability = msg->detections[num_faces].results[0].score;
+            max_probability = msg->detections[i].results[0].score;
             max_num = i;
         }
     }
@@ -85,6 +85,6 @@ int main(int argc, char* argv[])
         ROS_INFO("Unsuccesful loading of configuration file. Default threshold: %d",threshold);
     }
     pub = nh.advertise<sensor_msgs::JointState>("/alphabot/servo_cmd",1);
-    ros::Subscriber detect_sub = nh.subscribe("/alphabot/face_detection/bouding_boxes",1,detect_callback);
+    ros::Subscriber detect_sub = nh.subscribe("/alphabot/face_detection/bounding_boxes",1,detect_callback);
     ros::spin();
 }

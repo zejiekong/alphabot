@@ -39,8 +39,8 @@ void callback(const sensor_msgs::CompressedImageConstPtr msg) {
       cv::rectangle(cv_ptr->image, face, cv::Scalar(0, 255, 0), 2);
       detectionProbability = (face.width * face.height) / imageArea;
       vision_msgs::Detection2D detection;
-      detection.bbox.center.x = (face.x + face.width)/2;
-      detection.bbox.center.y = (face.y + face.height)/2;
+      detection.bbox.center.x = face.x + (face.width/2);
+      detection.bbox.center.y = face.y + (face.height/2);
       detection.bbox.size_x = face.width;
       detection.bbox.size_y = face.height;
 

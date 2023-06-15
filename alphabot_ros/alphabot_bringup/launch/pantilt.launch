@@ -1,17 +1,17 @@
 <launch>
     <arg name="face_detect" default="false"/>
-    <arg name="face_tracker" default="false"/>
+    <arg name="face_track" default="false"/>
 
 	<include file="$(find raspicam_node)/launch/camerav2_410x308_30fps.launch"/>
 	<node name="pantilt_node" pkg="pantilt_node" type="pantilt.py"/>
 
     <!-- face detect-->
     <group if="$(arg face_detect)">
-	<node name="face_detection_node" pkg="face_detection" type="face_detection_node"/>
+	<node name="face_detection_node" pkg="face_detection" type="face_detection_node" output="screen"/>
     </group>
 
     <!-- face tracker-->
-    <group if="$(arg face_tracker)">
+    <group if="$(arg face_track)">
     <node name="pantilt_control_node" pkg="pantilt_control" type="pantilt_control_node" output="screen"/>
     </group>
 
