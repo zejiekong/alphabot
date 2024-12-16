@@ -8,7 +8,7 @@
 #include <signal.h>
 
 ros::Publisher pub;
-int threshold{20};
+int threshold{40};
 
 int pan_angle{90};
 int tilt_angle{90};

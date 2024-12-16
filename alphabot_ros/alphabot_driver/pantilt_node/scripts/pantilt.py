@@ -2,7 +2,7 @@
 
 PAN = 0 # 20 (right) - 160 (left)
 TILT = 1 # 20 (up) - 160 (down)
-TIME_DELAY = 0.02
+TIME_DELAY = 0.05
 
 from time import sleep
 from PCA9685 import PCA9685
